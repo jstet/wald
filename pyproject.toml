@@ -11,3 +11,4 @@ dependencies = [
 
 [tool.uv.sources]
 hadolint-py = { git = "https://github.com/AleksaC/hadolint-py.git", rev = "v2.14.0" }
+
