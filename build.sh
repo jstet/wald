@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME="lafayettegabe/docker-postgres-walg"
+IMAGE_NAME="jstet/wald"
 VERSION="1.0.1"
 
 echo "Building multi-architecture WAL-D image..."
