@@ -20,6 +20,10 @@ if [ -n "${AWS_ENDPOINT}" ]; then
     echo "${AWS_ENDPOINT}" > /etc/wal-g/env/AWS_ENDPOINT
 fi
 
+if [ -n "${AWS_S3_FORCE_PATH_STYLE}" ]; then
+    echo "${AWS_S3_FORCE_PATH_STYLE}" > /etc/wal-g/env/AWS_S3_FORCE_PATH_STYLE
+fi
+
 echo "${WALG_LIBSODIUM_KEY}" > /etc/wal-g/env/WALG_LIBSODIUM_KEY
 echo 'hex' > /etc/wal-g/env/WALG_LIBSODIUM_KEY_TRANSFORM
 echo "${WALG_COMPRESSION_METHOD:-lz4}" > /etc/wal-g/env/WALG_COMPRESSION_METHOD

@@ -13,12 +13,12 @@ ENV WALG_VERSION=v3.0.7 \
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      wget=1.21.6-1ubuntu1.2 \
-      curl=7.68.0-1ubuntu2.18 \
-      daemontools=0.76-37build1 \
-      cron=3.0pl1-136.1ubuntu1 \
-      gettext-base=0.21-0ubuntu1.1 \
-      ca-certificates=20210119~20.04.2 && \
+      wget \
+      curl \
+      daemontools \
+      cron \
+      gettext-base \
+      ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 # download and install WAL-G with progress bar

@@ -5,10 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "duplicaid>=0.5.0",
     "hadolint-py",
     "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
 ]
 
 [tool.uv.sources]
 hadolint-py = { git = "https://github.com/AleksaC/hadolint-py.git", rev = "v2.14.0" }
 
+[tool.pytest.ini_options]
+markers = [
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+]

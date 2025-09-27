@@ -70,8 +70,6 @@ coverage.xml
 # ===== Docker =====
 
 # Dockerfile backups
-Dockerfile.*
-docker-compose*.yml
 
 # Docker Compose override files
 docker-compose.override.yml
@@ -94,6 +92,9 @@ docker-volumes/
 
 # Docker machine files
 .machines/
+
+.pytest_cache/
+.claude/
 
 # Misc
 !README.md

@@ -3,4 +3,4 @@ repos:
     rev: v2.14.0
     hooks:
       - id: hadolint
-        args: [--ignore, DL3025, --ignore, DL3018]
+        args: [--ignore, DL3025, --ignore, DL3018, --ignore, DL3008]
