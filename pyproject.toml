@@ -1,0 +1,13 @@
+[project]
+name = "wald"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "hadolint-py",
+    "pre-commit>=4.3.0",
+]
+
+[tool.uv.sources]
+hadolint-py = { git = "https://github.com/AleksaC/hadolint-py.git", rev = "v2.14.0" }
