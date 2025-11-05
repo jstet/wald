@@ -17,7 +17,6 @@ required_vars=(
     "AWS_ACCESS_KEY_ID"
     "AWS_SECRET_ACCESS_KEY"
     "WALG_S3_PREFIX"
-    "WALG_LIBSODIUM_KEY"
 )
 
 missing_vars=()
@@ -40,6 +39,9 @@ log_message "Setting up automated backup schedule..."
 /scripts/setup-cron.sh
 
 log_message "Starting PostgreSQL with WAL-G archiving enabled..."
+
+# Ensure PGDATA is set to the standard location
+export PGDATA=/var/lib/postgresql/data
 
 shift
 postgres_args=(
@@ -82,7 +84,7 @@ create_initial_backup() {
     BACKUP_START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
     BACKUP_START_EPOCH=$(date +%s)
     
-    if su - postgres -c "envdir /etc/wal-g/env /usr/local/bin/wal-g backup-push /var/lib/postgresql/data" 2>/var/log/wal-g/initial-backup.log; then
+    if su - postgres -c "envdir /etc/wal-g/env /usr/local/bin/wal-g backup-push $PGDATA" 2>/var/log/wal-g/initial-backup.log; then
         BACKUP_END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
         BACKUP_END_EPOCH=$(date +%s)
         BACKUP_DURATION=$((BACKUP_END_EPOCH - BACKUP_START_EPOCH))

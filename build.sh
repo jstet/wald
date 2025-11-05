@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IMAGE_NAME="jstet/wald"
-VERSION="1.0.1"
+VERSION="1.0.2"
 
 echo "Building multi-architecture WAL-D image..."
 echo "Platforms: linux/amd64, linux/arm64"

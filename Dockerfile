@@ -8,7 +8,8 @@ ARG TARGETARCH
 ARG TARGETOS
 ARG TARGETPLATFORM
 
-ENV WALG_VERSION=v3.0.7 \
+ENV PGDATA=/var/lib/postgresql/data \
+    WALG_VERSION=v3.0.7 \
     DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \

@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: jstet/wald
+    image: jstet/wald:test
     container_name: postgres_wald
     hostname: postgres
     ports:
@@ -12,7 +12,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: testpassword
       WALG_S3_PREFIX: s3://test-bucket
-      WALG_LIBSODIUM_KEY: "746573742d656e6372797074696f6e2d6b65792d33322d636861726163746572"
+      # Disable encryption for testing - faster and simpler
+      # WALG_LIBSODIUM_KEY: "746573742d656e6372797074696f6e2d6b65792d33322d636861726163746572"
       AWS_ACCESS_KEY_ID: minioadmin
       AWS_SECRET_ACCESS_KEY: minioadmin
       AWS_ENDPOINT: http://minio:9000

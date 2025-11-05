@@ -24,8 +24,10 @@ if [ -n "${AWS_S3_FORCE_PATH_STYLE}" ]; then
     echo "${AWS_S3_FORCE_PATH_STYLE}" > /etc/wal-g/env/AWS_S3_FORCE_PATH_STYLE
 fi
 
-echo "${WALG_LIBSODIUM_KEY}" > /etc/wal-g/env/WALG_LIBSODIUM_KEY
-echo 'hex' > /etc/wal-g/env/WALG_LIBSODIUM_KEY_TRANSFORM
+if [ -n "${WALG_LIBSODIUM_KEY}" ]; then
+    echo "${WALG_LIBSODIUM_KEY}" > /etc/wal-g/env/WALG_LIBSODIUM_KEY
+    echo 'hex' > /etc/wal-g/env/WALG_LIBSODIUM_KEY_TRANSFORM
+fi
 echo "${WALG_COMPRESSION_METHOD:-lz4}" > /etc/wal-g/env/WALG_COMPRESSION_METHOD
 echo "${WALG_DELTA_MAX_STEPS:-6}" > /etc/wal-g/env/WALG_DELTA_MAX_STEPS
 echo "${WALG_UPLOAD_CONCURRENCY:-16}" > /etc/wal-g/env/WALG_UPLOAD_CONCURRENCY
